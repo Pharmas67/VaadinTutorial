@@ -1,0 +1,19 @@
+{
+  "productionMode": false,
+  "eagerServerLoad": false,
+  "npmFolder": "/home/michael/code/vaadin/tutorial",
+  "node.version": "v20.14.0",
+  "frontend.hotdeploy": true,
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "/home/michael/code/vaadin/tutorial/src/main/frontend",
+  "connect.javaSourceFolder": "/home/michael/code/vaadin/tutorial/src/main/java",
+  "javaResourceFolder": "/home/michael/code/vaadin/tutorial/src/main/resources",
+  "connect.applicationProperties": "/home/michael/code/vaadin/tutorial/src/main/resources/application.properties",
+  "connect.openApiFile": "/home/michael/code/vaadin/tutorial/target/generated-resources/openapi.json",
+  "project.frontend.generated": "/home/michael/code/vaadin/tutorial/src/main/frontend/generated",
+  "pnpm.enable": false,
+  "bun.enable": false,
+  "require.home.node": false,
+  "build.folder": "target",
+  "react.enable": true
+}

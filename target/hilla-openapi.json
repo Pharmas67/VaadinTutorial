@@ -1,0 +1,316 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Hilla Application",
+    "version" : "1.0.0"
+  },
+  "servers" : [
+    {
+      "url" : "http://localhost:8080/connect",
+      "description" : "Hilla Backend"
+    }
+  ],
+  "tags" : [
+    {
+      "name" : "ChatService",
+      "x-class-name" : "com.example.application.chat.ChatService"
+    }
+  ],
+  "paths" : {
+    "/ChatService/channel" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_channel_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "channelId" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "nullable" : true,
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/components/schemas/com.example.application.chat.Channel"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ChatService/channels" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_channels_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/com.example.application.chat.Channel"
+                      }
+                    ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ChatService/createChannel" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_createChannel_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "anyOf" : [
+                    {
+                      "$ref" : "#/components/schemas/com.example.application.chat.Channel"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ChatService/liveMessages" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_liveMessages_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "channelId" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "array",
+                    "items" : {
+                      "anyOf" : [
+                        {
+                          "$ref" : "#/components/schemas/com.example.application.chat.Message"
+                        }
+                      ]
+                    },
+                    "x-java-type" : "java.util.List"
+                  },
+                  "x-class-name" : "com.vaadin.hilla.runtime.transfertypes.Flux"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ChatService/messageHistory" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_messageHistory_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "channelId" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "fetchMax" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "x-java-type" : "int"
+                  },
+                  "lastSeenMessageId" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/com.example.application.chat.Message"
+                      }
+                    ]
+                  },
+                  "x-java-type" : "java.util.List"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ChatService/postMessage" : {
+      "post" : {
+        "tags" : [
+          "ChatService"
+        ],
+        "operationId" : "ChatService_postMessage_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "channelId" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "message" : {
+                    "type" : "string",
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "com.example.application.chat.Channel" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          },
+          "name" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          },
+          "lastMessage" : {
+            "nullable" : true,
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/com.example.application.chat.Message"
+              }
+            ]
+          }
+        }
+      },
+      "com.example.application.chat.Message" : {
+        "type" : "object",
+        "properties" : {
+          "messageId" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          },
+          "channelId" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          },
+          "sequenceNumber" : {
+            "type" : "integer",
+            "format" : "int64",
+            "x-java-type" : "java.lang.Long"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "date-time",
+            "x-java-type" : "java.time.Instant"
+          },
+          "author" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          },
+          "message" : {
+            "type" : "string",
+            "x-java-type" : "java.lang.String"
+          }
+        }
+      }
+    }
+  }
+}

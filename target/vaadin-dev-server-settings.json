@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "/home/michael/code/vaadin/tutorial/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/home/michael/code/vaadin/tutorial/src/main/frontend/generated/jar-resources",
+  "staticOutput": "/home/michael/code/vaadin/tutorial/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/home/michael/code/vaadin/tutorial/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/home/michael/code/vaadin/tutorial/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/home/michael/code/vaadin/tutorial/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/home/michael/code/vaadin/tutorial/target/dev-bundle/config",
+  "jarResourcesFolder": "/home/michael/code/vaadin/tutorial/src/main/frontend/generated/jar-resources",
+  "themeName": "chat-theme",
+  "clientServiceWorkerSource": "/home/michael/code/vaadin/tutorial/target/sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}

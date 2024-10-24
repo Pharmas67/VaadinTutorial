@@ -1,0 +1,33 @@
+[
+  {
+    "route": "",
+    "params": {},
+    "title": "Main Layout",
+    "children": [
+      {
+        "route": "",
+        "params": {},
+        "title": "Lobby"
+      },
+      {
+        "route": "channel",
+        "params": {},
+        "children": [
+          {
+            "route": ":channelId",
+            "params": {
+              ":channelId": "req"
+            },
+            "children": [
+              {
+                "route": "",
+                "params": {},
+                "title": "Channel"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
