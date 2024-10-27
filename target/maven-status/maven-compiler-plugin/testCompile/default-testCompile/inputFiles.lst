@@ -1,3 +1,3 @@
-/home/michael/code/vaadin/tutorial/src/test/java/com/example/application/chat/ChatServiceTest.java
-/home/michael/code/vaadin/tutorial/src/test/java/com/example/application/inmemorystorage/InMemoryChannelRepositoryTest.java
-/home/michael/code/vaadin/tutorial/src/test/java/com/example/application/inmemorystorage/InMemoryMessageRepositoryTest.java
+/Users/mgurr/code/vaadin/tutorial/src/test/java/com/example/application/chat/ChatServiceTest.java
+/Users/mgurr/code/vaadin/tutorial/src/test/java/com/example/application/inmemorystorage/InMemoryChannelRepositoryTest.java
+/Users/mgurr/code/vaadin/tutorial/src/test/java/com/example/application/inmemorystorage/InMemoryMessageRepositoryTest.java

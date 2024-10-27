@@ -1,10 +1,10 @@
 com/example/application/chat/spi/NewChannel.class
 com/example/application/inmemorystorage/package-info.class
-com/example/application/chat/package-info.class
 com/example/application/chat/spi/ChannelRepository.class
+com/example/application/chat/package-info.class
 com/example/application/chat/Message.class
-com/example/application/chat/spi/package-info.class
 com/example/application/chat/spi/NewMessage.class
+com/example/application/chat/spi/package-info.class
 com/example/application/chat/Channel.class
 com/example/application/Application.class
 com/example/application/chat/InvalidChannelException.class

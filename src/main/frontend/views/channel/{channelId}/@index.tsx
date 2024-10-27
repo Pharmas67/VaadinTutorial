@@ -9,7 +9,9 @@ import {useEffect} from "react";
 import { Notification } from '@vaadin/react-components/Notification';
 import Message from 'Frontend/generated/com/example/application/chat/Message';
 import { Subscription } from '@vaadin/hilla-frontend';
+import {pageTitle} from "Frontend/views/@layout";
 
+const HISTORY_SIZE = 20;
 
 export default function ChannelView() {
     const { channelId } = useParams()
@@ -18,12 +20,21 @@ export default function ChannelView() {
     const messages = useSignal<Message[]>([]);
     const subscription = useSignal<Subscription<Message[]> | undefined>(undefined);
 
+    function receiveMessages(incoming: Message[]){
+        const newMessages = [...messages.value, ...incoming]
+            .sort((a, b) => a.sequenceNumber - b.sequenceNumber)
+            .filter((msg, index, all) => all.findIndex(m => m.messageId === msg.messageId) == index);
+        if(newMessages.length > HISTORY_SIZE){
+            newMessages.splice(0, newMessages.length - HISTORY_SIZE)         }
+        messages.value = newMessages;
+    }
+
     async function updateChannel() {
         channel.value = channelId ? await ChatService.channel(channelId) : undefined;
         if(!channel.value) {
             navigate('/');
         } else {
-            document.title = channel.value.name;
+            pageTitle.value = channel.value.name;
         }
     }
 
@@ -54,8 +65,11 @@ export default function ChannelView() {
         if(channel.value){
             console.log("Subscribing to",channel.value.id)
             subscription.value = ChatService.liveMessages(channel.value.id)
-                .onNext(incoming => messages.value = [...messages.value, ...incoming])
+                .onNext(receiveMessages)
                 .onError(() => console.error("Error in subscription"));
+            ChatService.messageHistory(channel.value.id, HISTORY_SIZE, undefined)
+                .then(receiveMessages)
+                .catch(console.error)
         }
     }
 
